@@ -1,5 +1,5 @@
+ifneq ($(DISABLE_QUALCOMM_KERNEL_SCRIPTS),true)
 ifeq ($(TARGET_PREBUILT_KERNEL),)
-
 include device/qcom/kernelscripts/legacy_definitions.mk
 
 # Android Kernel compilation/common definitions
@@ -336,4 +336,5 @@ $(RTIC_DTB): $(INSTALLED_KERNEL_TARGET)
 $(INSTALLED_DTBIMAGE_TARGET): $(INSTALLED_KERNEL_TARGET) $(RTIC_DTB)
 	cat $(shell find $(KERNEL_OUT)/arch/$(KERNEL_ARCH)/boot/dts -type f -name "*.dtb" | sort) > $@
 
+endif
 endif
